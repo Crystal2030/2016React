@@ -32,7 +32,8 @@ module.exports = {
     contentBase: "build",
     inline: true,
     stats: { colors: true },
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 8181
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
@@ -41,7 +42,7 @@ module.exports = {
       template: './src/index.html'
     }),
     new openBrowserWebpackPlugin({
-      url: 'http://localhost:8080'
+      url: 'http://localhost:8181'
     })
   ],
   devtool: 'source-map'
