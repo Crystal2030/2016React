@@ -1,5 +1,5 @@
-import axios from 'axios'
-
+import axios from 'axios'//
+//axios是一个能同时运行于浏览器端和nodejs的AJAX/HTTP方法/库,用axios来请求github API的接口数据，用于组件的展示。
 // axios用法很简单，请参考这里：https://github.com/mzabriskie/axios
 
 /**

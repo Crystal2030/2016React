@@ -9,9 +9,10 @@ class SearchGithub extends Component {
     this.usernameRef = ref;
   }
   handleSubmit(event){
+    //拿到input里面输入的值
     const username = this.usernameRef.value;
     this.usernameRef.value = '';
-
+    //使用template string拼成一个路径，通过browserHistory改变路径
     const path = `/profile/${username}`;
     browserHistory.push(path)
 
