@@ -1,20 +1,37 @@
+/*
+//默认值default
+function Person(name, age){
+    if(typeof name == "undefined") name = name || 'Lily';
+    if(typeof age == "undefined") age = age || '18';
+    return name + '' + age;
+}
 
-var [dog, , bull, [ken, duck]] = ["狗", "猫", "牛", ["鸡","鸭"]];
+Person('crystal');
 
-console.log( dog )
-console.log( bull )
-console.log( ken )
-console.log( duck )
+//使用default定义
+var Person = (name="Mary", age="16") =>{
+    return name + '' + age;
+}
+console.log(Person('GuoYongfeng'))
 
-//对象解构赋值
-var obj = {
-    a: "1",
-    b: ["狗", ["鸡","鸭"]],
-    fn: function(){console.log(this.a)}
-};
-var {a, b} = obj;
+*/
 
-console.log(b);
+//keys: 任意参数 Rest
+function argv(obj, ...keys){
+    var res = Object.create(null);
+    for(var i = 0; i < arguments.length; i++){
+        res[arguments[i]] = obj[arguments[i]];
+    }
+    return res;
+}
+var data = {title: 'es6', name: 'Tom'};
 
-var {React, Component, Prototyep} = require('react');
+var msg= argv(data, "title", "name", "age");
 
+console.log(msg.age)
+
+//spread
+var arr = [18, 12, 334, 123, 5];
+var newArr = [...arr, 100, 10000];
+
+console.log(Math.max(...newArr));
