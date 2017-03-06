@@ -1,48 +1,15 @@
-/*
-//es5 方式定义类
-function Animal(name, age){
-    this.name = name;
-    this.age = age;
-}
+var others = {data: 'other data' };
 
-Animal.prototype = {
-    getMessage: function(){
-        console.log(this.name + " is " + this.age + ' years old');
-    }
-}
-
-
-var cat = new Animal('cat', 1);
-
-cat.getMessage();*/
-
-// es6方式定义类
-class Animal {
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
-    }
-    getMessage(){
-        console.log(this.name + " is " + this.age + ' years old');
-    }
-
-    static showInfo(){
-        console.log('show info');
-    }
-}
-//继承
-class Cat extends Animal{
-    constructor(name, age, color){
-        super(name, age);
-        this.color = color;
-    }
+var obj = {
+    __proto__: others,
+    name: 'crystal',
     getName(){
-        console.log(this.name + "'s color is "+this.color)
+        console.log(this.name)
     }
 }
-var cat = new Cat('cat', 1, 'grey');
-console.log(cat.__proto__)
 
-cat.getName();
-
-Animal.showInfo();
+var a = 1;
+var b = "eee";
+var fn = (m, n) => console.log(m+n);
+var objOther = {a, b, fn};
+console.log(objOther.fn(1,2))
