@@ -23,8 +23,17 @@ npm run dev
   - babel-preset-es2016
   - babel-register 用于es6的文件里面直接引入，这样可以运行时解析
   - babel-polyfill 用于将一些es5的API做兼容处理
+  - babel-plugin-add-module-exports 为了解决默认default方式导出来exports.default问题module.default.a，使用这个插件后，直接module.a即可
+  ```
+  export default{
+      a: "3333"
+  }
+  .babelrc使用插件： "plugins": ["add-module-exports"]
+  import * as module from "./module";
+  module.a;
   
-#箭头函数
+  未使用的话，就要module.default.a
+  
 ```
 1. 
 var fn = p => p;
@@ -75,3 +84,9 @@ console.log(fn4(1, 2));//6
 - 新增块级作用域，使用let定义
 - const是用于定义常量，但数值（仅允许被赋值一次）
 - 没有变量提升，静态限制（Static restriction）组织变量在赋值钱被使用
+
+#模块
+- ES6的Class只是面向对象变成语法糖，升级了ES5的构造函数的原型继承的写法，并没有解决做模块化问题，Module功能就是为了解决这个问题而提出的
+- 为了方便定义模块，从语言层面对模块进行了支持。编写方式借鉴了流行的JavaScript模块加载器（AMD，CommonJS）
+- 使用webpack将模块打包
+  
