@@ -16,7 +16,7 @@ console.log(Person('GuoYongfeng'))
 
 */
 
-//keys: 任意参数 Rest
+/*//keys: 任意参数 Rest
 function argv(obj, ...keys){
     var res = Object.create(null);
     for(var i = 0; i < arguments.length; i++){
@@ -34,4 +34,28 @@ console.log(msg.age)
 var arr = [18, 12, 334, 123, 5];
 var newArr = [...arr, 100, 10000];
 
-console.log(Math.max(...newArr));
+console.log(Math.max(...newArr));*/
+
+//使用let新增块级作用域
+/*
+for(var i = 0; i < 10; i++){
+}
+console.log(i)//10
+
+for(let i = 0; i < 10; i++){
+}
+// console.log(i)//报错，i is not defined
+*/
+
+
+// const是用于定义常量，但数值（仅允许被赋值一次）
+// const a = 1;
+// a = 2;//报错
+
+// 没有变量提升，静态限制（Static restriction）组织变量在赋值钱被使用
+/*console.log(a);//undefined 变量提升了
+var a = 2;*/
+console.log(a);//a is not defined
+{
+    let a = 2;
+}
