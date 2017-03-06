@@ -1,16 +1,20 @@
-var name = "cat";
-var age = "1";
 
-var str = name + " is " + age + " years old.";
+var [dog, , bull, [ken, duck]] = ["狗", "猫", "牛", ["鸡","鸭"]];
 
-var temStr = `${name} is ${age} years old`;
-// console.log(str);
-// console.log(temStr);
+console.log( dog )
+console.log( bull )
+console.log( ken )
+console.log( duck )
 
+//对象解构赋值
+var obj = {
+    a: "1",
+    b: ["狗", ["鸡","鸭"]],
+    fn: function(){console.log(this.a)}
+};
+var {a, b} = obj;
 
-var htmlStr = "<div>" + name +"</div>" +
-    "<h1>" + age +"</h1>" + "years old.";
-var htmlTemStr = `<div>${name} </div><h1>${age}</h1> years old.`;
+console.log(b);
 
-console.log(htmlStr)
-console.log(htmlTemStr)
+var {React, Component, Prototyep} = require('react');
+
