@@ -1,0 +1,19 @@
+{
+  "name": "es6-course",
+  "version": "1.0.0",
+  "description": "es6 study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel src --out-dir dist -w"
+  },
+  "keywords": [
+    "es6"
+  ],
+  "author": "crystal2030",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}
