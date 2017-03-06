@@ -1,15 +1,16 @@
-var others = {data: 'other data' };
+var name = "cat";
+var age = "1";
 
-var obj = {
-    __proto__: others,
-    name: 'crystal',
-    getName(){
-        console.log(this.name)
-    }
-}
+var str = name + " is " + age + " years old.";
 
-var a = 1;
-var b = "eee";
-var fn = (m, n) => console.log(m+n);
-var objOther = {a, b, fn};
-console.log(objOther.fn(1,2))
+var temStr = `${name} is ${age} years old`;
+// console.log(str);
+// console.log(temStr);
+
+
+var htmlStr = "<div>" + name +"</div>" +
+    "<h1>" + age +"</h1>" + "years old.";
+var htmlTemStr = `<div>${name} </div><h1>${age}</h1> years old.`;
+
+console.log(htmlStr)
+console.log(htmlTemStr)
