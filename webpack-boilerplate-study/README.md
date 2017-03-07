@@ -135,6 +135,12 @@
                 ```
      -  webpack --config webpack.config.prod.js
        
-       
-       
+## 给文件加banner信息
+     - 修改webpack.config.prod.js：
+        ```
+         plugins: [
+                new webpack.BannerPlugin('作者：刘云\n 日期：2017-3-7\n协议：MIT\n版本号：0.0.1')
+             ]
+         ```
+     - ./node_modules/.bin/webpack --config webpack.config.prod.js
 
