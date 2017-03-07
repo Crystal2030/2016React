@@ -52,28 +52,41 @@
             }
         ```
 ##自动产出html
-   - npm install html-webpack-plugin --save-dev
+    - npm install html-webpack-plugin --save-dev
+    - 修改webpack.config.js：
+       ```
+       var htmlWebpackPlugin = require('html-webpack-plugin');
+       
+       ...
+       
+        plugins: [
+                new htmlWebpackPlugin({
+                    title: "搭建前端工作流",
+                    template: "./src/index.html"
+                })
+            ]
+        ```
 ##启动本地服务器
-   - npm install webpack-dev-server --save-dev
+    - npm install webpack-dev-server --save-dev
 ## 打包react
-   - npm install react react-dom --save-dev
-   - npm install babel-preset-react --save-dev
-   - 修改.babelrc文件,把"react"加入到presets里面
-   ```
-   {
-     "presets":["es2015", "react"]
-   }
-   ```
+    - npm install react react-dom --save-dev
+    - npm install babel-preset-react --save-dev
+    - 修改.babelrc文件,把"react"加入到presets里面
+       ```
+       {
+         "presets":["es2015", "react"]
+       }
+       ```
 ##在webpack中加载css
-   - npm install style-loader css-loader --save-dev
-   - 修改webpack.config.js,在loaders加入：
-    ```
-     {
-         test: /\.css$/,
-         loader: 'style-loader!css-loader',
-         include: path.resolve(__dirname, 'src')
-     }
-     ```
+    - npm install style-loader css-loader --save-dev
+    - 修改webpack.config.js,在loaders加入：
+        ```
+         {
+             test: /\.css$/,
+             loader: 'style-loader!css-loader',
+             include: path.resolve(__dirname, 'src')
+         }
+         ```
    
     ### webpack + less
      - npm install less less-loader --save-dev
@@ -91,6 +104,22 @@
     - karma init   “创建karma.config.js文件”
     ### 单元测试 chai
        - npm install 
+       
+
+## 自动打开浏览器       
+    - npm install open-browser-webpack-plugin --save-dev
+    - 修改webpack.config.js：
+          ```
+          var htmlWebpackPlugin = require('html-webpack-plugin');
+          
+          ...
+          
+           plugins: [
+                  new openBrowserPlugin({
+                      url: 'http://localhost:8181/'
+                  })
+               ]
+           ```
        
        
        

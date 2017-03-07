@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var openBrowserPlugin = require('open-browser-webpack-plugin');
 
 var config = {
     entry: path.resolve(__dirname, './src/index.js'),
@@ -39,6 +40,9 @@ var config = {
         new htmlWebpackPlugin({
             title: "搭建前端工作流",
             template: "./src/index.html"
+        }),
+        new openBrowserPlugin({
+            url: 'http://localhost:8181/'
         })
     ]
 
