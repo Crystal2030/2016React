@@ -10,24 +10,7 @@
 - npm scripts 统一的任务构建
 - react 组件化基础类库 
 
-##webpack + babel
 
-    ```
-       npm install babel-loader babel-core babel-preset-es2015 --save-dev
-    
-    ```
-    - webpack配置
-    ```
-    module: {
-            loaders:[
-                {
-                    test: /\.js$/,
-                    loader: 'babel',
-                    exclude: /node_modules/
-                }
-            ]
-        }
-    ```
 
 ## 如何开发
 
@@ -36,5 +19,56 @@
 
 2. npm run build
 ```
-
+## 使用es6
+###webpack + babel
+        ```
+           npm install babel-loader babel-core babel-preset-es2015 --save-dev
+        
+        ```
+        - webpack配置
+        ```
+        module: {
+                loaders:[
+                    {
+                        test: /\.js$/,
+                        loader: 'babel-loader',
+                        exclude: /node_modules/
+                    }
+                ]
+            }
+        ```
+##自动产出html
+   - npm install html-webpack-plugin --save-dev
+##启动本地服务器
+   - npm install webpack-dev-server --save-dev
+## 打包react
+   - npm install react react-dom --save-dev
+   - npm install babel-preset-react --save-dev
+   - 修改.babelrc文件,把"react"加入到presets里面
+   ```
+   {
+     "presets":["es2015", "react"]
+   }
+   ```
+##在webpack中加载css
+   - npm install style-loader css-loader --save-dev
+   - 修改webpack.config.js,在loaders加入：
+    ```
+     {
+         test: /\.css$/,
+         loader: 'style-loader!css-loader',
+         include: path.resolve(__dirname, 'src')
+     }
+     ```
+   
+    ### webpack + less
+     - npm install less less-loader --save-dev
+     - 修改webpack.config.js,在loaders加入：
+        ```
+         {
+             test: /\.less$/,
+             loader: 'style-loader!css-loader!less-loader',
+             include: path.resolve(__dirname, 'src')
+         }
+         ```
 

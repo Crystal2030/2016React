@@ -22,6 +22,16 @@ var config = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader',
+                include: path.resolve(__dirname, 'src')
+            },
+            {
+                test: /\.less/,
+                loader: 'style-loader!css-loader!less-loader',
+                include: path.resolve(__dirname, 'src')
             }
         ]
     },
