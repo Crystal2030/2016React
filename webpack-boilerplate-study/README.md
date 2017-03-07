@@ -144,3 +144,31 @@
          ```
      - ./node_modules/.bin/webpack --config webpack.config.prod.js
 
+## 将css单独加载
+    - npm install extract-text-webpack-plugin --save-dev
+     - 修改webpack.config.js：
+              ```
+              var extractTextPlugin = require('extract-text-webpack-plugin');
+              ...
+              loaders里面修改：
+              {
+                 test: /\.css$/,
+                 loader: extractTextPlugin.extract({
+                     fallback: "style-loader",
+                     use: "css-loader"
+                 }),
+                 include: path.resolve(__dirname, 'src')
+             },
+             {
+                 test: /\.less/,
+                 loader: extractTextPlugin.extract({
+                     fallback: "style-loader",
+                     use: ["css-loader","less-loader"]
+                 }),
+                 include: path.resolve(__dirname, 'src')
+             }
+              plugins里面修改：
+               plugins: [
+                       new extractTextPlugin("styles.css"),
+                   ]
+               ```
