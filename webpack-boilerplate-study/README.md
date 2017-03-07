@@ -71,4 +71,10 @@
              include: path.resolve(__dirname, 'src')
          }
          ```
+         
+##测试用例
+    - npm install karma karma-chrome-launcher mocha karma-mocha --save-dev
+    - karma init   “创建karma.config.js文件”
+    ### 单元测试 chai
+       - npm install 
 
