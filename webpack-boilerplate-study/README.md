@@ -172,3 +172,7 @@
                        new extractTextPlugin("styles.css"),
                    ]
                ```
+## 文件名增加hash值
+     - 保证文件的时效性,保证加载文件的唯一性   
+          -- bundle.js?[hash:6] //产出bundle.js名不会改变
+          -- bundle.[hash:6].js //每次都增加一个文件
