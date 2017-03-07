@@ -120,6 +120,20 @@
                   })
                ]
            ```
+## 在生产环境下压缩产出文件       
+     - cp webpack.config.js webpack.config.prod.js
+     - 修改webpack.config.prod.js：
+               ```
+                var uglifyPlugin = webpack.optimize.UglifyJsPlugin;   
+               ...
+               
+                plugins: [
+                       new uglifyPlugin({
+                           compress: false
+                       })
+                    ]
+                ```
+     -  webpack --config webpack.config.prod.js
        
        
        
