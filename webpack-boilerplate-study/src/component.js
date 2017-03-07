@@ -1,3 +1,3 @@
 export default function(){
-    document.body.innerHTML = '搭建开发环境111';
+	document.body.innerHTML = "搭建开发环境111";
 }

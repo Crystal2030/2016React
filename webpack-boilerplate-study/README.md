@@ -6,7 +6,21 @@
 - webpack
 - babel 语法解析
 - es6/7 基本语法
-- eslint 语法检查
+- eslint 语法检查  npm install eslint --save-dev
+    ```
+    ./node_modules/.bin/eslint --init
+    
+    会自动安装eslint-plugin-react
+    
+    ```
+    -- 使用
+    ```
+    ./node_modules/.bin/eslint src/
+    
+     ./node_modules/.bin/eslint src/ --fix
+
+     ```
+
 - npm scripts 统一的任务构建
 - react 组件化基础类库 
 
@@ -77,4 +91,7 @@
     - karma init   “创建karma.config.js文件”
     ### 单元测试 chai
        - npm install 
+       
+       
+       
 
