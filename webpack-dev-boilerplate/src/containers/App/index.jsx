@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { MyComponent } from '../../components';
+import { Router, Route, browserHistory, Link } from 'react-router';
 
-import './index.css';
+const Home = () => <div><Links/><h1>Home</h1></div>;
+const About = () => <div><Links/><h1>About</h1></div>;
+const Contact = () => <div><Links/><h1>Contact</h1></div>;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <MyComponent />
-        <p>
-          欢迎在github上一起维护这个脚手架项目<br />
-          https://github.com/GuoYongfeng
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Router history={browserHistory}>
+                <Route path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+            </Router>
+        );
+    }
 }
+
+const Links = () =>
+    <nav>
+        <Link to="/">Home  </Link>
+        <Link to="/about">About  </Link>
+        <Link to="/contact">Contact</Link>
+    </nav>
 
 export default App;
