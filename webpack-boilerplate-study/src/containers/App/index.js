@@ -4,12 +4,12 @@ import Footer from "../../components/Footer";
 
 import "./index.css";
 export default class App extends Component{
-	render(){
-		return (
-            <div className="app">
-                <Header/>
-                <Footer/>
-            </div>
-		);
-	}
+    render(){
+        return (
+			<div className="app">
+				<Header/>
+				<Footer/>
+			</div>
+        );
+    }
 }

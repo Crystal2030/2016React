@@ -1,0 +1,22 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "homework2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel third.js --out-file test.js"
+  },
+  "keywords": [
+    "es6",
+    "babel",
+    "react",
+    "webpack"
+  ],
+  "author": "crystal2030",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}

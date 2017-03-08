@@ -29,6 +29,7 @@ class Animal{
 new Animal('cat', 'male', 'two').getInfo(); // A two years old male cat
 ```
 
+
 将翻译后的代码放在“个人文件夹/es6/second.js”中。
 
 温馨提示：使用babel编译的同学是不可能通过的。
