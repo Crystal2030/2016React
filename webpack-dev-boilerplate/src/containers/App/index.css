@@ -3,3 +3,7 @@ p{
   text-align: center;
   color: red;
 }
+.active{
+  font-size: 48px;
+  color: #efa;
+}
