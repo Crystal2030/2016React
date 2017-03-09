@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes  } from 'react';
 import { Router, Route, browserHistory, Link, IndexRoute,Redirect  } from 'react-router';
 import "./index.css";
 
@@ -68,9 +68,9 @@ const Page = (props) =>
     </div>*/
 
 //
-const Home = () => <div><h1>Home</h1><Links /></div>;
+/*const Home = () => <div><h1>Home</h1><Links /></div>;
 const About = () => <div><h1>About</h1><Links /></div>;
-const Contact = () => <div><h1>Contact</h1><Links /></div>;
+const Contact = () => <div><h1>Contact</h1><Links /></div>;*/
 
 /*const Links = () =>
  <nav>
@@ -82,14 +82,48 @@ const Contact = () => <div><h1>Contact</h1><Links /></div>;
  <Link to={{ pathname: "/", query: {message: "crystal"} }} > 链接 </Link>
  </nav>*/
 
-const Links = () =>
+/*const Links = () =>
     <nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/contact-us">Contact US</Link>
-    </nav>
+    </nav>*/
 
+// setRouteLeaveHook路由钩子函数：处理路由切换时的操作
+
+class Home extends Component {
+    componentWillMount(){
+        console.log(this);
+        this.context.router.setRouteLeaveHook(
+            this.props.route,
+            //hook触发的时候应该要做什么
+            this.routerWillLeave
+        )
+    }
+    routerWillLeave( nextLocation ){
+        return `页面即将从Home切换到${nextLocation.pathname}`
+    }
+
+    render(){
+        return <div>
+            <h1>Home</h1>
+            <Links />
+        </div>
+    }
+}
+
+Home.contextTypes = {
+    router: PropTypes.object.isRequired
+};
+
+const Contact = () => <div><h1>Contact</h1><Links /></div>;
+
+const Links = () =>
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="/contact">Contact</Link>
+    </nav>
 
 class App extends Component {
     render() {
@@ -108,10 +142,12 @@ class App extends Component {
                 </Route>*/}
                 {/*<Route path="/" component={Page} />*/
                 }
-                <Route path="/" component={Home} />
+                {/*<Route path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/contact-us" component={Contact} />
-                <Redirect from="/contact" to="/contact-us" />
+                <Redirect from="/contact" to="/contact-us" />*/}
+                <Route path="/" component={Home} />
+                <Route path="/contact" component={Contact} />
             </Router>
         );
     }
