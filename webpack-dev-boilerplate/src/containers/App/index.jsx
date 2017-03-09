@@ -36,7 +36,9 @@ const Contact = () =>
         )
     }
 }*/
-const HomeHeader = () => <h1>HomeHeader</h1>
+
+//Route中components参数的高级用法
+/*const HomeHeader = () => <h1>HomeHeader</h1>
 const HomeBody = () => <h1>HomeBody</h1>
 const AboutHeader = () => <h1>AboutHeader</h1>
 const AboutBody = () => <h1>AboutBody</h1>
@@ -47,11 +49,19 @@ const Container = (props) =>
         {props.header}
         {props.body}
         <Links />
-    </div>
+    </div>*/
 /**
  * '/': Container + HomeHeader + HomeBody
  * '/about': Container + AboutHeader + AboutBody
  */
+
+// 使用query获取URL中的参数
+const Page = (props) =>
+    <div>
+        <h1>{props.location.query.message || 'Hello'}</h1>
+        <Links/>
+    </div>
+
 class App extends Component {
     render() {
         return (
@@ -63,10 +73,11 @@ class App extends Component {
                         <Route path="contact" component={Contact} />
                     </Route>
                 </Route>*/}
-                <Route path="/" component={Container}>
+                {/*<Route path="/" component={Container}>
                     <IndexRoute components={{ header:HomeHeader, body:HomeBody }} />
                     <Route path="about" components={{ header:AboutHeader, body:AboutBody }} />
-                </Route>
+                </Route>*/}
+                <Route path="/" component={Page} />
             </Router>
         );
     }
@@ -76,10 +87,13 @@ class App extends Component {
  * '/about' 对应的是 Home + About
  * '/about/contact' 对应的是 Home + About + Contact
  */
-const Links = () =>
+/*const Links = () =>
     <nav>
         <Link to="/">Hello</Link>
         <Link to="/about">About</Link>
+    </nav>*/
+const Links = () =>
+    <nav>
+        <Link to={{ pathname: "/", query: {message: "crystal"} }} > 链接 </Link>
     </nav>
-
 export default App;
