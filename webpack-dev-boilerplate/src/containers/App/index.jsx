@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { Router, Route, browserHistory, Link, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, Link, IndexRoute,Redirect  } from 'react-router';
 import "./index.css";
 
 /*const Home = () => <div><Links/><h1>Home</h1></div>;
 const About = () => <div><Links/><h1>About</h1></div>;
 const Contact = () => <div><Links/><h1>Contact</h1></div>;*/
 //嵌套路由
+/**
+ * '/'   对应的是 Home组件
+ * '/about' 对应的是 Home + About
+ * '/about/contact' 对应的是 Home + About + Contact
+ */
 /*const Home = (props) =>
     <div>
         <Links />
@@ -55,12 +60,36 @@ const Container = (props) =>
  * '/about': Container + AboutHeader + AboutBody
  */
 
-// 使用query获取URL中的参数
+/*// 使用query获取URL中的参数
 const Page = (props) =>
     <div>
         <h1>{props.location.query.message || 'Hello'}</h1>
         <Links/>
-    </div>
+    </div>*/
+
+//
+const Home = () => <div><h1>Home</h1><Links /></div>;
+const About = () => <div><h1>About</h1><Links /></div>;
+const Contact = () => <div><h1>Contact</h1><Links /></div>;
+
+/*const Links = () =>
+ <nav>
+ <Link to="/">Hello</Link>
+ <Link to="/about">About</Link>
+ </nav>*/
+/*const Links = () =>
+ <nav>
+ <Link to={{ pathname: "/", query: {message: "crystal"} }} > 链接 </Link>
+ </nav>*/
+
+const Links = () =>
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/contact-us">Contact US</Link>
+    </nav>
+
 
 class App extends Component {
     render() {
@@ -77,23 +106,18 @@ class App extends Component {
                     <IndexRoute components={{ header:HomeHeader, body:HomeBody }} />
                     <Route path="about" components={{ header:AboutHeader, body:AboutBody }} />
                 </Route>*/}
-                <Route path="/" component={Page} />
+                {/*<Route path="/" component={Page} />*/
+                }
+                <Route path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/contact-us" component={Contact} />
+                <Redirect from="/contact" to="/contact-us" />
             </Router>
         );
     }
 }
-/**
- * '/'   对应的是 Home组件
- * '/about' 对应的是 Home + About
- * '/about/contact' 对应的是 Home + About + Contact
- */
-/*const Links = () =>
-    <nav>
-        <Link to="/">Hello</Link>
-        <Link to="/about">About</Link>
-    </nav>*/
-const Links = () =>
-    <nav>
-        <Link to={{ pathname: "/", query: {message: "crystal"} }} > 链接 </Link>
-    </nav>
+
+
+
+
 export default App;
