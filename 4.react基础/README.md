@@ -134,6 +134,67 @@
          })
      }
     ```
+## 使用refs操作DOM
+    ```
+    import ReactDOM, {render, findDOMNode} from 'react-dom';
+    ...
     
- 
+    update = (e) =>{
+        console.log(this.refs)
+        console.log(findDOMNode(this.refs.one).value);
+        this.setState({
+            one: findDOMNode(this.refs.one).value,
+            two: findDOMNode(this.refs.two).value,
+            three: findDOMNode(this.refs.three).value,
+        })
+    }
+    render () {
+    return (
+        <div>
+            {/*使用refs来操作DOM*/}
+            {/*<input type="text" onChange={this.update}/>*/}
+            <h1>hello, {this.state.one}</h1>
+            <Range ref="one" update={this.update} /> {this.state.one}
+            <Range ref="two" update={this.update} />{this.state.two}
+            <Range ref="three" update={this.update} />{this.state.three}
+        </div>
+    )
+    }
+    ```
+## 获取子组件 this.props.children
+    ```
+    import React, {Component, Children} from 'react';
+    import ReactDOM, {render} from 'react-dom';
     
+    
+    class App extends Component {
+        render () {
+            return (
+                <div>
+                    <List>
+                        <a href="http://baidu.com">baidu</a>
+                        <a href="http://google.com">google</a>
+                    </List>
+                </div>
+            )
+        }
+    }
+    
+    class List extends Component{
+        render(){
+            console.log(Children)
+            let node = Children.map(this.props.children, (item) => {
+                return <li>{item}</li>
+            });
+            console.log(node)
+            return (
+                <ul>
+                    {node}
+                </ul>
+            )
+        }
+    }
+    render(<App/>, document.getElementById('app'));
+    ```  
+    
+##   
