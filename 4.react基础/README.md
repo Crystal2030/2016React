@@ -38,4 +38,79 @@
 - 组件定义
 - 数据流动
 - props 组件间的数据传递
+    ```
+    index.js:
+    const data = {
+        "name": "Crystal2030",
+        "id": 6970454,
+        "avatar_url": "https://avatars0.githubusercontent.com/u/6970454?v=3"
+    };
+    
+    class App extends Component {
+        render () {
+            return <Profile name={data.name}  id={data.id} url={data.avatar_url}/>;
+        }
+    }
+    
+    
+    组件内Profile.js
+    class Profile extends Component {
+        render (){
+            let {name, url, id} = this.props;
+            console.log(name, url ,id);
+            return (
+                <div>
+                    <img src={url} alt=""/>
+                    <h1> {name} </h1>
+                    <h2> {id} </h2>
+                </div>
+            )
+        }
+    }
+    
+    
+    限定组件属性和设置默认值：
+    //限定数据类型
+    Profile.propTypes = {
+        url: PropTypes.string,
+        name: PropTypes.string,
+        id: PropTypes.number.isRequired
+    }
+    //默认值设置
+    Profile.defaultProps={
+        name: 'aa',
+        id: '0',
+        url: ''
+    }
+    ```
 - state 管理组件自己内部的数据
+    ```
+  constructor(){
+        super();
+        this.state = {name: 'react course'}
+    }
+    render () {
+        return <h1>hello,  {this.state.name} </h1>
+    }
+    
+    用setState改变state的值：
+    constructor(){
+            super();
+            //初始的state
+            //defaultProps性质一样
+            this.state = {name: 'react course'}
+        }
+     update(e){
+            this.setState({
+                name: e.target.value
+            })
+        }
+     render () {
+        return (
+            <div>
+                <input type="text" onChange={this.update.bind(this)}/>
+                <h1>hello, {this.state.name}</h1>
+            </div>
+        )
+        }
+    ```

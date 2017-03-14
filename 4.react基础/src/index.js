@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 
 import "./index.css";
-import Profile from './component/Profile';
+// import Profile from './component/Profile';
 
 const data = {
     "name": "Crystal2030",
@@ -11,8 +11,24 @@ const data = {
 };
 
 class App extends Component {
+    constructor(){
+        super();
+        //初始的state
+        //defaultProps性质一样
+        this.state = {name: 'react course'}
+    }
+    update(e){
+        this.setState({
+            name: e.target.value
+        })
+    }
     render () {
-        return <Profile name={data.name}  id={data.id} url={data.avatar_url}/>;
+    return (
+        <div>
+            <input type="text" onChange={this.update.bind(this)}/>
+            <h1>hello, {this.state.name}</h1>
+        </div>
+    )
     }
 }
 
