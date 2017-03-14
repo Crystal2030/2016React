@@ -32,3 +32,10 @@
    ```
    
 -  npm install style-loader css-loader --save-dev
+
+
+## 组件
+- 组件定义
+- 数据流动
+- props 组件间的数据传递
+- state 管理组件自己内部的数据
