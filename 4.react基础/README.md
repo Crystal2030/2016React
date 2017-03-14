@@ -95,22 +95,45 @@
     
     用setState改变state的值：
     constructor(){
-            super();
-            //初始的state
-            //defaultProps性质一样
-            this.state = {name: 'react course'}
-        }
+        super();
+        //初始的state
+        //defaultProps性质一样
+        this.state = {name: 'react course'}
+    }
      update(e){
-            this.setState({
-                name: e.target.value
-            })
-        }
-     render () {
+        this.setState({
+            name: e.target.value
+        })
+    }
+    render () {
         return (
             <div>
                 <input type="text" onChange={this.update.bind(this)}/>
                 <h1>hello, {this.state.name}</h1>
             </div>
         )
-        }
+    }
     ```
+## 改变this关键字指向
+    ```
+    1. 在constructor里面修改
+    constructor(){
+        super();
+        //初始的state
+        //defaultProps性质一样
+        this.state = {name: 'react course'}
+        // this.update = this.update.bind(this);//改变this指向， 或者可以用arrow function
+    }
+     2.用arrow function， 需要安装babel-preset-stage-0预设并配置来支持这种写法：
+     npm install babel-preset-stage-0
+     
+     update = (e) =>{
+         console.log(this);
+         this.setState({
+             name: e.target.value
+         })
+     }
+    ```
+    
+ 
+    

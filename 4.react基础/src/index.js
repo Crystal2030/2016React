@@ -16,8 +16,11 @@ class App extends Component {
         //初始的state
         //defaultProps性质一样
         this.state = {name: 'react course'}
+        // this.update = this.update.bind(this);//改变this指向， 或者可以用arrow function
     }
-    update(e){
+
+    update = (e) =>{
+        console.log(this);
         this.setState({
             name: e.target.value
         })
@@ -25,7 +28,7 @@ class App extends Component {
     render () {
     return (
         <div>
-            <input type="text" onChange={this.update.bind(this)}/>
+            <input type="text" onChange={this.update}/>
             <h1>hello, {this.state.name}</h1>
         </div>
     )
