@@ -1,26 +1,10 @@
-import React, {Component} from 'react';
-import ReactDOM, {render} from 'react-dom';
+var React= require('react');
+var ReactDOM = require('react-dom');
 
-import "./index.css";
-class App extends Component {
-    render () {
-        const name = 'crystal';
-        const styles = {
-            fontSize: "40px",
-            color: "orange",
-            backgroundColor: "blue"
-        }
-        // return React.createElement('h1', null, 'hello jsx');
-        return (
-           <div className="container" style = {styles}>
-               <h1>learn {name}</h1>
-               < label htmlFor = "name" >aaa </label>
-           </div>
-        )
-
+var App = React.createClass({
+    render: function(){
+        return <h1>define component use es5.</h1>
     }
-}
+})
 
-render(<App/>, document.getElementById('app'));
-
-
+ReactDOM.render(<App/>, document.getElementById('app'));
