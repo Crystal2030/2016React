@@ -85,6 +85,8 @@
     ```
 - state 管理组件自己内部的数据
     ```
+    index.js:
+    
   constructor(){
         super();
         this.state = {name: 'react course'}
