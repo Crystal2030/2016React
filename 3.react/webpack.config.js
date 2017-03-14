@@ -42,12 +42,12 @@ module.export = function(env){
         module:{
             loaders: [
                 {
-                    test: /\.js&/,
+                    test: /\.js$/,
                     loader: 'babel-loader',
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.js&/,
+                    test: /\.js$/,
                     loader: 'eslint',
                     exclude: /node_modules/
                 }
