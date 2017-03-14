@@ -197,4 +197,5 @@
     render(<App/>, document.getElementById('app'));
     ```  
     
-##   
+## 理解react的生命周期之创建  
+![react lifetime](react_lifetime.png)
