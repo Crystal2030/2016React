@@ -1,10 +1,30 @@
-var React= require('react');
-var ReactDOM = require('react-dom');
+import React, {Component} from 'react';
+import ReactDOM, {render} from 'react-dom';
 
-var App = React.createClass({
-    render: function(){
-        return <h1>define component use es5.</h1>
+import "./index.css";
+/*class App extends Component {
+    render () {
+        const name = 'crystal';
+        const styles = {
+            fontSize: "40px",
+            color: "orange",
+            backgroundColor: "blue"
+        }
+        // return React.createElement('h1', null, 'hello jsx');
+        return (
+           <div className="container" style = {styles}>
+               <h1>learn {name}</h1>
+               < label htmlFor = "name" >aaa </label>
+           </div>
+        )
+
     }
-})
+}*/
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+// 创建有状态的组件：调用Component createClass
+//创建无状态的组件：
+const App = ()=> <h1>create stateless component.</h1>;
+
+render(<App/>, document.getElementById('app'));
+
+
