@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import ReactDOM, {render} from 'react-dom';
+import ReactDOM, {render, findDOMNode} from 'react-dom';
 
 import "./index.css";
 // import Profile from './component/Profile';
+import Range from './component/Range';
 
 const data = {
     "name": "Crystal2030",
@@ -15,21 +16,32 @@ class App extends Component {
         super();
         //初始的state
         //defaultProps性质一样
-        this.state = {name: 'react course'}
+        this.state = {
+            one: 0,
+            two: 0,
+            three: 0
+        }
         // this.update = this.update.bind(this);//改变this指向， 或者可以用arrow function
     }
 
     update = (e) =>{
-        console.log(this);
+        console.log('=====')
+        console.log(findDOMNode(this.refs.one).value);
         this.setState({
-            name: e.target.value
+            one: findDOMNode(this.refs.one).value,
+            two: findDOMNode(this.refs.two).value,
+            three: findDOMNode(this.refs.three).value,
         })
     }
     render () {
     return (
         <div>
-            <input type="text" onChange={this.update}/>
-            <h1>hello, {this.state.name}</h1>
+            {/*使用refs来操作DOM*/}
+            {/*<input type="text" onChange={this.update}/>*/}
+            <h1>hello, {this.state.one}</h1>
+            <Range ref="one" update={this.update} /> {this.state.one}
+            <Range ref="two" update={this.update} />{this.state.two}
+            <Range ref="three" update={this.update} />{this.state.three}
         </div>
     )
     }
