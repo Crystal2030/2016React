@@ -27,7 +27,7 @@ class App extends Component {
     }
     render(){
         return (
-            <List data ={this.state.data} />
+            <List data ={this.state.data} update = {this.update} />
 
         )
     }
