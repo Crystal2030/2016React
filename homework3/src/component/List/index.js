@@ -9,10 +9,11 @@ export default class List extends Component {
         super(props);
         this.state = ItemUtil.getAllItems();
     }
+
     render() {
         const List = this.state.data.map(child => {
             return (
-                <Item key={child.id} data={child}/>
+                <Item key={child.id} data={child} />
             )
         });
         return (
