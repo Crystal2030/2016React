@@ -20,9 +20,10 @@ li{
 }
 button{
     position: absolute;
-    font-size: 20px;
+    font-size: 18px;
     top: 15px;
-    right: 0;
+    right: 60px;
+    padding: 5px;
 }
 input{
     font-size: 20px;

@@ -1,4 +1,5 @@
-
+var EventEmitter = require('events').EventEmitter;
+var event = new EventEmitter();
 const ItemUtil = Object.assign({},{
     items: {
         data: [
@@ -21,6 +22,12 @@ const ItemUtil = Object.assign({},{
                 edit: false
             }
         ]
+    },
+    eventEmit() {
+        event.emit('change');
+    },
+    addEventListener(callback) {
+        event.on('change', callback);
     },
     getAllItems(){
         return this.items;
@@ -49,6 +56,9 @@ const ItemUtil = Object.assign({},{
             }
             return data;
         })
+    },
+    handleDelete(id){
+        return this.items.data = this.items.data.filter(data=>data.id != id);
     }
 });
 

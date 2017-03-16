@@ -9,6 +9,10 @@ export default class List extends Component {
         super(props);
         this.state = ItemUtil.getAllItems();
     }
+    componentDidMount() {
+        console.log('did mount')
+        ItemUtil.addEventListener(()=>this.setState(ItemUtil.getAllItems()));
+    }
 
     render() {
         const List = this.state.data.map(child => {
