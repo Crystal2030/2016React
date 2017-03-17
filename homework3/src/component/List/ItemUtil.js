@@ -21,12 +21,14 @@ const ItemUtil = Object.assign({},{
                 bgColor: 'green',
                 edit: false
             }
-        ]
+        ],
+        display: 'none'
     },
     eventEmit() {
         event.emit('change');
     },
     addEventListener(callback) {
+        console.log('save')
         event.on('change', callback);
     },
     getAllItems(){
@@ -59,6 +61,17 @@ const ItemUtil = Object.assign({},{
     },
     handleDelete(id){
         return this.items.data = this.items.data.filter(data=>data.id != id);
+    },
+    displayAdd(){
+        this.items.data.display = 'block'
+        return this.items.data;
+    },
+    handleAdd(content, color) {
+        let currentData = this.items.data;
+        let lastId = currentData[currentData.length - 1].id;
+        lastId++;
+        currentData.push({id: lastId, content: content, bgColor: color, edit: false});
+        return currentData;
     }
 });
 

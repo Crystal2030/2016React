@@ -30,7 +30,6 @@ export default class Item extends Component {
         let data = this.props.data;
         let bgColor = data.bgColor;
         let editable = data.edit ? "保存" : "编辑";
-        console.log(this.props.data, '----------')
         return (
             <li className={bgColor}>
                 <Edit data={data} editable={data.edit} editId = {data.id} currentColor={data.bgColor} currentContent={data.content} updateColor={this.updateColor} updateContent={this.update}/>
