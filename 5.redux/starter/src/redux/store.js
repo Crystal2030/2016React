@@ -1,8 +1,10 @@
 import {createStore, applyMiddleware} from 'redux';
 import createLogger from 'redux-logger';
-import counter from './reducers';
 import middlewareDemo from './middlewareDemo';
 import loggerMiddleware from './loggerMiddleware';
+import thunk from 'redux-thunk';
+
+import counter from './reducers';
 
 
 // applyMiddleware(applyMiddleware1, applyMiddleware2);
@@ -20,7 +22,10 @@ const store = finalCreateStore(counter);*/
 
 let store = createStore(
     counter,
-    applyMiddleware(loggerMiddleware)
+    applyMiddleware(
+        loggerMiddleware,
+        thunk
+    )
 );
 export default store;
 
