@@ -8,9 +8,25 @@ import DevTools from './containers/DevTools';
 
 
 let root = document.getElementById('app');
+
+console.log(__DEV__);
+console.log(__PROD__);
+
+let node;
+
+if(__DEV__ ){
+    node = (
+        <div>
+            <DevTools/>
+            <RootApp/>
+        </div>
+    )
+}
+
+if(__PROD__){
+    node = <RootApp/>;
+}
+
 render(<Provider store={store}>
-    <div>
-        <DevTools/>
-        <RootApp/>
-    </div>
+    {node}
 </Provider>, root);
