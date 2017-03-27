@@ -4,8 +4,7 @@ import middlewareDemo from './middlewareDemo';
 import loggerMiddleware from './loggerMiddleware';
 import thunk from 'redux-thunk';
 
-import counter from './reducers';
-
+import {counter} from '../components/Counter/CounterRedux';
 
 // applyMiddleware(applyMiddleware1, applyMiddleware2);
 
@@ -24,8 +23,7 @@ let store = createStore(
     counter,
     applyMiddleware(
         loggerMiddleware,
-        thunk
-    )
+        thunk)
 );
 export default store;
 
