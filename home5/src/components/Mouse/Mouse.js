@@ -7,7 +7,7 @@ class Mouse extends Component {
         const tmp = (
             <table className="table">
                 <tr>
-                    <td><img src="../../static/images/mouse.png" /></td>
+                    <td ><span>1</span></td>
                     <td>2</td>
                     <td>3</td>
                 </tr>
@@ -27,7 +27,7 @@ class Mouse extends Component {
             <div className="mouse-box">
                 <h1>打地鼠</h1>
                 {tmp}
-                <button className="ready">Ready</button>
+                <button onClick={this.props.onHit} className="ready">Ready</button>
             </div>
         )
     }

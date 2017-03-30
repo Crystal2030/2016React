@@ -1,12 +1,26 @@
+export function Inc () {
+    return (dispatch, getState) => {
+        setTimeout(function(){
+            return dispatch( {type: "INCREMENT"} );
+        }, 2000)
+    }
+}
 
+export function Dec () {
+    return ({type: "DECREMENT"});
+}
 
-export function MouseReducer(count = 1, action){
+export function Hit(){
+    return (dispatch, getState) => {
+        dispatch({type: "click", id: 1});
+    }
+}
+export function MouseReducer(data=[], action){
     switch(action.type){
-        case "INCREMENT":
-            return count + 1;
-        case "DECREMENT":
-            return count - 1;
+        case "click":
+            console.log(11111);
+
         default:
-            return count;
+            return data;
     }
 }
