@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import "./Mouse.css";
 
 class Mouse extends Component {
+	constructor(props) {
+		super(props);
+	}
     render() {
         console.log(this.props);
 
@@ -41,11 +44,18 @@ Mouse.propTypes = {
 };
 
 class MouseItem extends Component{
+	constructor(props) {
+		super(props);
+	}
 
+	shouldComponentUpdate(nextProps, nextState){
+
+		return true;
+	}
 	render(){
-		console.log(this.props.item.isShow, '*************')
+		console.log(this.props, '##############')
 		const styles = this.props.item.isShow? {
-				backgroundImage: ` url(../../static/images/${this.props.img}.png) `,
+				backgroundImage: ` url(../../static/images/${this.props.item.img}.png) `,
 				backgroundRepeat: 'no',
 				height: '150px'
 			}:{};

@@ -7,18 +7,17 @@ import DevTools from '../containers/DevTools';
 
 let data = {
 	items: [
-		{id: 1,isShow: false},
-		{id: 2,isShow: false},
-		{id: 3,isShow: false},
-		{id: 4,isShow: false},
-		{id: 5,isShow: false},
-		{id: 6,isShow: false},
-		{id: 7,isShow: false},
-		{id: 8, isShow: false},
-		{id: 9, isShow: false}
+		{id: 1,img: 'mouse', isShow: false},
+		{id: 2,img: 'mouse', isShow: false},
+		{id: 3,img: 'mouse', isShow: false},
+		{id: 4,img: 'mouse', isShow: false},
+		{id: 5,img: 'mouse', isShow: false},
+		{id: 6,img: 'mouse', isShow: false},
+		{id: 7,img: 'mouse', isShow: false},
+		{id: 8,img: 'mouse', isShow: false},
+		{id: 9,img: 'mouse', isShow: false}
 	],
-	ready: false,
-	img: 'mouse'
+	ready: false
 }
 
 const enhancer = compose(
