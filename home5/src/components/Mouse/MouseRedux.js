@@ -12,14 +12,24 @@ export function Dec () {
 
 export function Hit(){
     return (dispatch, getState) => {
-        dispatch({type: "click", id: 1});
+        dispatch({type: "HIT", id: 1});
     }
+}
+export function Start(){
+	return (dispatch, getState) => {
+		setTimeout(function(){
+			return dispatch({type: "BEGIN"});
+		},1000);
+	}
 }
 export function MouseReducer(data=[], action){
     switch(action.type){
-        case "click":
-            console.log(11111);
-
+        case "HIT":
+            console.log(11111111);
+	    case "BEGIN":
+	    	console.log(data, 22222222222222222)
+		    data.items[0].isShow = true;
+		    return data;
         default:
             return data;
     }
