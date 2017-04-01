@@ -51,7 +51,7 @@ class MouseItem extends Component{
 				height: '150px',
 				cursor: 'pointer'
 			}:{};
-console.log(this.props.item, '66666')
+// console.log(this.props.item, '66666')
 		return (
 			<div style={styles} onClick={( this.props.item.img === 'mouse') ? () => {this.props.onHit(this.props.item.id)} : ''}>
 			</div>

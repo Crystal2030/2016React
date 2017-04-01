@@ -17,7 +17,8 @@ let data = {
 		{id: 8,img: 'mouse', isShow: false},
 		{id: 9,img: 'mouse', isShow: false}
 	],
-	ready: false
+	ready: false,
+	count: 0
 }
 
 const enhancer = compose(
