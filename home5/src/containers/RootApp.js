@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         // onIncrement: () => dispatch(Inc()),
         // onDecrement: () => dispatch(Dec())
-        onHit: () => dispatch(Hit()),
+        onHit: (id) => dispatch(Hit(id)),
 	    onStart: () => dispatch(Start())
     }
 };

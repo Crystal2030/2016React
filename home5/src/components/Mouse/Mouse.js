@@ -2,11 +2,9 @@ import React, {Component} from "react";
 import "./Mouse.css";
 
 class Mouse extends Component {
-	constructor(props) {
-		super(props);
-	}
+
     render() {
-        console.log(this.props);
+	console.log(this.props, '*****************');
 
         const tableNode = (
             <table className="table">
@@ -44,24 +42,17 @@ Mouse.propTypes = {
 };
 
 class MouseItem extends Component{
-	constructor(props) {
-		super(props);
-	}
 
-	shouldComponentUpdate(nextProps, nextState){
-
-		return true;
-	}
 	render(){
-		console.log(this.props, '##############')
 		const styles = this.props.item.isShow? {
 				backgroundImage: ` url(../../static/images/${this.props.item.img}.png) `,
 				backgroundRepeat: 'no',
-				height: '150px'
+				height: '150px',
+				cursor: 'pointer'
 			}:{};
-				console.log(styles,'*************')
+console.log(this.props.item, '66666')
 		return (
-			<div style={styles} >
+			<div style={styles} onClick={( this.props.item.img === 'mouse') ? () => {this.props.onHit(this.props.item.id)} : ''}>
 			</div>
 		)
 	}
