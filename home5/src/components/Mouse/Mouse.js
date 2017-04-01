@@ -26,12 +26,13 @@ class Mouse extends Component {
 
                 </tr>
             </table>
-        )
+        );
+        const ready = !this.props.value.ready ? 'btn btn-lg btn-info' : 'btn btn-lg btn-default disabled'
         return (
             <div className="mouse-box">
                 <h1>打地鼠</h1>
                 {tableNode}
-                <button onClick={this.props.onStart} className="ready">Ready</button>
+                <a onClick={this.props.onStart} className={ready}>Ready</a>
             </div>
         )
     }

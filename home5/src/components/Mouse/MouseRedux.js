@@ -22,9 +22,12 @@ export function MouseReducer(data=[], action){
             return afterHit;
 	    case "BEGIN":
             // reducer里面，修改值一定要是覆盖的修改
-		    data.items[0].isShow = true;
-		    console.log(Object.assign({}, data))
-		    return Object.assign({}, data);
+            console.log(data, '3333333333')
+            let obj = {};
+            let id = Math.floor(Math.random()*10);
+		    data.items[id].isShow = true;
+            data.ready = true;
+		    return Object.assign(obj, data);
         default:
             return data;
     }
