@@ -4,7 +4,9 @@ import React, {Component} from 'react';
 class Home extends Component {
     render(){
         return (
-            <h1>this is Home</h1>
+            <h2 className="text-center">
+	            暂无用户信息，请通过以上搜索栏获取您想要的数据。
+            </h2>
         )
     }
 }
