@@ -12,7 +12,7 @@ export default(
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
-			<Route path="skills" component={Skills} />
+			<Route path="skill" component={Skills} />
 			<Route path="contact" component={Contact} />
 			<Route path="about" component={About} />
 			<Route path="project" component={Project} />

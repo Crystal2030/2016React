@@ -1,12 +1,14 @@
 import React, {Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import NavMenu from './NavMenu';
 import './App.css';
 
 class App extends Component{
 	render(){
 		return (
 			<div>
+				<NavMenu/>
 				<h1>这是我的在线个人网站!</h1>
 				<div className="main">
 					<ReactCSSTransitionGroup

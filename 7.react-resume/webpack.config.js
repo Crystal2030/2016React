@@ -25,7 +25,16 @@ module.exports  = function( env ){
 						use: 'css-loader',
 						publicPath: '/dist'
 					})
+				},
+				{
+					test: /\.(woff|svg|eot|ttf)(\?.*)?$/,
+					loader: 'url-loader?limit=5000',
+				},
+				{
+					test: /\.(png|jpg|gif)$/,
+					loader: "url-loader?limit=819200"
 				}
+
 			]
 		},
 		plugins: [
