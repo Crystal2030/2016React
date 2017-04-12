@@ -28,7 +28,7 @@ class NavMenu extends Component{
 			{name: "about", des: "关于我"}
 		];
 
-		const {collapse, handleCollapse} = this.props;
+		const {collapse, handleCollapse, pathname} = this.props;
 		return (
 		<aside className={collapse?"layout-aside layout-aside-collapse" : "layout-aside"}>
 			<div className="layout-logo">
@@ -38,7 +38,7 @@ class NavMenu extends Component{
 			<Menu mode="inline"
 			 theme="dark"
 			 defaultSelectedKeys={["home"]}
-			 selectedKeys={["home"]}>
+			 selectedKeys={[pathname]}>
 				{this.getMenuItems(data)}
 			</Menu>
 			<div className={collapse ? "aside-action aside-action-collapse" : "aside-action"} onClick={handleCollapse}>
