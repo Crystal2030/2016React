@@ -5,14 +5,16 @@ import {Link} from 'react-router';
 import './NavMenu.css';
 
 class NavMenu extends Component{
+
 	getMenuItems(data){
 		// data type array
 		// [{name: "home", des: "首页"}, {name: "about", des: "关于我"}]
+		const collapse = this.props.collapse;
 		return data.map((info) => (
 			<Menu.Item key={info.name}>
 				<Link to={info.name == "home" ? "/" : `/${info.name}`}>
 					<i className={info.name == "home" ? "iconfont icon-index" : `iconfont icon-${info.name}`}></i>
-					<span className="nav-text">{info.des}</span>
+					{collapse ? "" : <span className="nav-text">{info.des}</span>}
 				</Link>
 			</Menu.Item>
 		))
@@ -24,12 +26,14 @@ class NavMenu extends Component{
 			{name: "project", des: "项目经验"},
 			{name: "contact", des: "联系我"},
 			{name: "about", des: "关于我"}
-		]
+		];
+
+		const {collapse, handleCollapse} = this.props;
 		return (
-		<aside className="layout-aside layout-logo">
+		<aside className={collapse?"layout-aside layout-aside-collapse" : "layout-aside"}>
 			<div className="layout-logo">
 				<i className="iconfont icon-jianli logo"></i>
-				<span className="title-text">Crystal</span>
+				{collapse ? "" : <span className="title-text">Crystal</span>}
 			</div>
 			<Menu mode="inline"
 			 theme="dark"
@@ -37,8 +41,8 @@ class NavMenu extends Component{
 			 selectedKeys={["home"]}>
 				{this.getMenuItems(data)}
 			</Menu>
-			<div className="aside-action">
-				<Icon type="right" />
+			<div className={collapse ? "aside-action aside-action-collapse" : "aside-action"} onClick={handleCollapse}>
+				{collapse ? <Icon type="right" /> : <Icon type="left" />}
 			</div>
 		</aside>
 		)
