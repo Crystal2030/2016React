@@ -1,8 +1,8 @@
 import React, {Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import NavMenu from './NavMenu';
-import './App.css';
+import NavMenu from '../NavMenu';
+import './index.css';
 
 class App extends Component{
 	constructor(props){
